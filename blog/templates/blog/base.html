@@ -17,7 +17,7 @@
             {% if user.is_authenticated %}
                <span>Вы вошли как {{ user.username }} </span>
                <a href="{% url 'post_new' %}" class="blog-nav-item">Новая статья </a>
-               <a href="{% url 'post_draft_list' %}" class="blog-nav-item">Неопубликованные статьи </span></a>
+               <a href="{% url 'post_draft_list' %}" class="blog-nav-item">Черновики </span></a>
                <a href="{% url 'logout' %}" class="blog-nav-item">Выход</a>
             {% else %}
                <a href="{% url 'login' %}" class="blog-nav-item">Вход <span class="glyphicon glyphicon-lock"></span></a>
@@ -27,10 +27,11 @@
         </div>
 
         <div class="container">
-
+<!--
           <div class="blog-header">
-            <h1 class="blog-title"><a href="/">Мой блог</a></h1>
+            <h1 class="blog-title"><a href="/">Еще один блог</a></h1>
           </div>
+-->          
             <div class="row">
                 <div class="col-md-8 blog-main">
                   {% block content %}
