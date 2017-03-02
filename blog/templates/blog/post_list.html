@@ -6,8 +6,12 @@
                        <div class="blog-post-meta">
                            {{ post.published_date }}
                        </div>
-                       <p>{{ post.text|linebreaksbr }}</p>
-                       <a href="{% url 'post_detail' pk=post.pk %}">Комментарии: {{ post.approved.comments.count }}</a>
+                       <div>
+                           {{ post.description }} <a href="{% url 'post_detail' pk=post.pk %}">Читать..</a>
+                       </div>
+                       <div>
+                           <a href="{% url 'post_detail' pk=post.pk %}">Комментарии: {{ post.approved_comments.count }}</a>
+                       </div>
                    </div>
                {% endfor %}
 {% endblock content %}
