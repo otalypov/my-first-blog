@@ -6,8 +6,11 @@
                        <div class="blog-post-meta">
                            {{ post.published_date }}
                        </div>
+                       {% if post.picture %}
+                           <a href="{% url 'post_detail' pk=post.pk %}"><img src="{{ post.picture.url }}"></a>
+                       {% endif %}
                        <div>
-                           {{ post.description }} <a href="{% url 'post_detail' pk=post.pk %}">Читать..</a>
+                           {{ post.description }} <a href="{% url 'post_detail' pk=post.pk %}">  Читать >></a>
                        </div>
                        <div>
                            <a href="{% url 'post_detail' pk=post.pk %}">Комментарии: {{ post.approved_comments.count }}</a>

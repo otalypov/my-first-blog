@@ -8,6 +8,8 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     description = models.TextField()
+    picture = models.ImageField()
+    big_picture =models.ImageField()
     text = models.TextField()
     created_date = models.DateTimeField(
             default=timezone.now)
@@ -39,11 +41,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
-
-@python_2_unicode_compatible
-class Picture(models.Model):
-    post = models.ForeignKey('blog.Post', related_name='picture')
-    link = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.link

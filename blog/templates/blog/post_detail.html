@@ -2,6 +2,11 @@
 
    {% block content %}
        <div class="blog-post">
+           {% if post.big_picture %}
+                 <img src="{{ post.big_picture.url }}">
+           {% elif post.picture %}
+                 <img src="{{ post.picture.url }}">
+           {% endif %}
            {% if post.published_date %}
                <div class="blog-post-meta">
                    {{ post.published_date }}
@@ -13,6 +18,7 @@
                <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                <a class="btn btn-danger" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
            {% endif %}
+
            <h2 class="blog-post-title">{{ post.title }}</h2>
            <p>{{ post.text|linebreaksbr }}</p>
        </div>
